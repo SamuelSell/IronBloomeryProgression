@@ -1,6 +1,12 @@
+# Iron Bloomery Progression Tweak
+***
+Change how fast players acquire iron gear.  With this mod, all progression up to and including stone gear remains the same.  The _**Bloomery**_ is a new type of furnace designed to smelt raw iron ore into iron nuggets with a low yield.
+
+# Gradle Information
+***
 
 Installation information
-=======
+---
 
 This template repository can be directly cloned to get you started with a new
 mod. Simply create a new repository cloned from this one, by following the
