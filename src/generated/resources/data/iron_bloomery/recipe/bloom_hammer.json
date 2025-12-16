@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": "minecraft:cobblestone",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    " CS",
+    " SC",
+    "S  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "iron_bloomery:bloom_hammer"
+  }
+}

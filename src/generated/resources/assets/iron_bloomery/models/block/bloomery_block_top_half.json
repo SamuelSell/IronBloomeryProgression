@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "iron_bloomery:block/bloomery_block_top_half"
+  }
+}

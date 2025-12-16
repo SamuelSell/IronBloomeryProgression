@@ -1,0 +1,11 @@
+{
+  "block.iron_bloomery.bloomery_block_top_half": "Bloomery Sub Block",
+  "block.iron_bloomery.bloomery_controller": "Bloomery",
+  "container.iron_bloomery.bloomery": "Bloomery",
+  "creative_tab.iron_bloomery_mod": "Iron Bloomery Progression",
+  "item.iron_bloomery.bloom_hammer": "Bloom Hammer",
+  "item.iron_bloomery.bloom_hammer.tooltip": "Converts Blooms into Iron Nuggets",
+  "item.iron_bloomery.iron_bloom": "Iron Bloom",
+  "item.iron_bloomery.iron_bloom.tooltip": "Use with §oBloom Hammer§r",
+  "sound.iron_bloomery.bloom_hammer_use": "Forging Iron Bloom"
+}

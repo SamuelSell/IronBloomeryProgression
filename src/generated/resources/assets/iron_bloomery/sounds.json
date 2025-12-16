@@ -1,0 +1,38 @@
+{
+  "bloom_hammer_use_finished": {
+    "sounds": [
+      {
+        "attenuation_distance": 8,
+        "name": "iron_bloomery:finished"
+      }
+    ],
+    "subtitle": "sound.iron_bloomery.bloom_hammer_use"
+  },
+  "bloom_hammer_use_strong": {
+    "sounds": [
+      {
+        "attenuation_distance": 8,
+        "name": "iron_bloomery:bing1",
+        "volume": 0.6
+      }
+    ],
+    "subtitle": "sound.iron_bloomery.bloom_hammer_use"
+  },
+  "bloom_hammer_use_weak": {
+    "sounds": [
+      {
+        "attenuation_distance": 8,
+        "name": "iron_bloomery:hit1",
+        "volume": 0.4,
+        "weight": 4
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "iron_bloomery:hit2",
+        "volume": 0.4,
+        "weight": 6
+      }
+    ],
+    "subtitle": "sound.iron_bloomery.bloom_hammer_use"
+  }
+}

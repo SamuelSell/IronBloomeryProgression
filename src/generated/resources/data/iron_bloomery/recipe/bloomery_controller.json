@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "minecraft:bricks",
+    "C": "minecraft:charcoal",
+    "L": "minecraft:oak_log",
+    "S": "minecraft:cobblestone"
+  },
+  "pattern": [
+    "BBB",
+    "BCB",
+    "SLS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "iron_bloomery:bloomery_controller"
+  }
+}
