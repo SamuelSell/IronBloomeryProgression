@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "iron_bloomery:item/iron_bloom_5"
+  }
+}
