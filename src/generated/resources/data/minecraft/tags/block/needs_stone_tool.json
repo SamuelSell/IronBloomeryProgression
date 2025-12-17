@@ -1,5 +1,6 @@
 {
   "values": [
-    "iron_bloomery:bloomery_controller"
+    "iron_bloomery:bloomery_controller",
+    "iron_bloomery:bloomery_block_top_half"
   ]
 }

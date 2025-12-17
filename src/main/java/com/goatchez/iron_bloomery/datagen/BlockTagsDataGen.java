@@ -19,16 +19,17 @@ public class BlockTagsDataGen extends BlockTagsProvider {
 
     public static final TagKey<Block> MINEABLE_PICKAXE = addToMinecraftTag("mineable/pickaxe");
     public static final TagKey<Block> MINING_LEVEL_STONE = addToMinecraftTag("needs_stone_tool");
-    public static final TagKey<Block> MINING_LEVEL_IRON = addToMinecraftTag("needs_iron_tool");
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(MINEABLE_PICKAXE)
                 .add(CustomBlockDefinitions.BLOOMERY_CONTROLLER.get())
+                .add(CustomBlockDefinitions.BLOOMERY_BLOCK_TOP_HALF.get())
                 .replace(false);
 
         this.tag(MINING_LEVEL_STONE)
                 .add(CustomBlockDefinitions.BLOOMERY_CONTROLLER.get())
+                .add(CustomBlockDefinitions.BLOOMERY_BLOCK_TOP_HALF.get())
                 .replace(false);
     }
 
