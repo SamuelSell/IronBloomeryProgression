@@ -55,29 +55,27 @@ public class BloomeryBlockTopHalf extends Block {
     public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
         if (state.getValue(HALF) == Half.TOP) {
             BlockPos belowPos = pos.below();
-            if (level.getBlockState(belowPos).is(CustomBlockDefinitions.BLOOMERY_CONTROLLER.get())) {
-                if (player.isCreative()) {
-                    level.destroyBlock(belowPos, false);
-                } else {
-                    level.destroyBlock(belowPos, true);
-                }
+            BlockState belowState = level.getBlockState(belowPos);
+
+            if (belowState.is(CustomBlockDefinitions.BLOOMERY_CONTROLLER.get())) {
+                boolean drop = !player.isCreative() && player.getMainHandItem().isCorrectToolForDrops(belowState);
+                level.destroyBlock(belowPos, drop);
             }
         }
 
         return super.playerWillDestroy(level, pos, state, player);
     }
 
+
+
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (state.getValue(HALF) == Half.TOP) {
             pos = pos.below();
-            state = level.getBlockState(pos);
+//            state = level.getBlockState(pos);
         }
 
         if (level.getBlockEntity(pos) instanceof BloomeryControllerBlockEntity controllerBlockEntity) {
-//            if (controllerBlockEntity == null) {
-//                return InteractionResult.PASS;
-//            }
             if (!level.isClientSide()) {
                 player.openMenu(new SimpleMenuProvider(controllerBlockEntity, Component.translatable("container.iron_bloomery.bloomery")), pos);
                 return InteractionResult.SUCCESS;

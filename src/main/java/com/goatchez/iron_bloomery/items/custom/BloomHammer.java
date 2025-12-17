@@ -78,33 +78,13 @@ public class BloomHammer extends Item {
                         ItemStack ironNugget = new ItemStack(Items.IRON_NUGGET, level.getRandom().nextInt(1, 6));
                         player.setItemInHand(InteractionHand.MAIN_HAND, ironNugget);
                         ((ServerLevel) level).sendParticles(ParticleTypes.LAVA,
-                                context.getClickedPos().getX()+0.5, context.getClickedPos().getY() + 1.0f, context.getClickedPos().getZ() + 0.5f, 10, 0, 0, 0, 2);
+                                context.getClickedPos().getX() + 0.5, context.getClickedPos().getY() + 1.0f, context.getClickedPos().getZ() + 0.5f, 10, 0, 0, 0, 2);
                     }
                 }
                 return InteractionResult.SUCCESS;
             }
         }
         return InteractionResult.FAIL;
-    }
-
-    //    @Override
-//    public boolean canBeHurtBy(ItemStack stack, DamageSource source) {
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean canPerformAction(ItemStack stack, ItemAbility itemAbility) {
-//        return super.canPerformAction(stack, itemAbility);
-//    }
-//
-    @Override
-    public boolean canDestroyBlock(ItemStack stack, BlockState state, Level level, BlockPos pos, LivingEntity entity) {
-        return false;
-    }
-
-    @Override
-    public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
-        return false;
     }
 
     @Override
