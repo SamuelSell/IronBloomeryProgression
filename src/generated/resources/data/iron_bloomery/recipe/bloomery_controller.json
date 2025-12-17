@@ -4,8 +4,8 @@
   "key": {
     "B": "minecraft:bricks",
     "C": "minecraft:charcoal",
-    "L": "minecraft:oak_log",
-    "S": "minecraft:cobblestone"
+    "L": "#minecraft:logs_that_burn",
+    "S": "#c:cobblestones"
   },
   "pattern": [
     "BBB",
