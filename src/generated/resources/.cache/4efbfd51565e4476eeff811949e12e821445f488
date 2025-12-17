@@ -1,3 +1,4 @@
-// 1.21.10	2025-12-16T23:16:31.4016326	Tags for minecraft:block mod id iron_bloomery
+// 1.21.10	2025-12-17T10:54:00.3086532	Tags for minecraft:block mod id iron_bloomery
+f30654456aac8b3a1a328ff10fbda8fa0c9d323d data/iron_bloomery/tags/block/directional_logs_overworld.json
 826fe200869e54b9e9772fe29e27d0b7989aee9f data/minecraft/tags/block/mineable/pickaxe.json
 826fe200869e54b9e9772fe29e27d0b7989aee9f data/minecraft/tags/block/needs_stone_tool.json

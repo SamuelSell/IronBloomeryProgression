@@ -1,5 +1,6 @@
 package com.goatchez.iron_bloomery.items.custom;
 
+import com.goatchez.iron_bloomery.datagen.BlockTagsDataGen;
 import com.goatchez.iron_bloomery.sounds.CustomSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -48,7 +49,7 @@ public class BloomHammer extends Item {
 
         boolean hammerInOffhand = player.getOffhandItem().getItem() instanceof BloomHammer;
         boolean ironBloomInMainHand = player.getMainHandItem().getItem() instanceof IronBloom;
-        boolean logBlock = clickedBlock.defaultBlockState().is(BlockTags.LOGS);
+        boolean logBlock = clickedBlock.defaultBlockState().is(BlockTagsDataGen.DIRECTIONAL_LOGS_OVERWORLD);
 
         if (player.getCooldowns().isOnCooldown(player.getOffhandItem())) {
             return InteractionResult.FAIL;
