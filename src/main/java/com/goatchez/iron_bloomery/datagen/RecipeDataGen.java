@@ -2,16 +2,13 @@ package com.goatchez.iron_bloomery.datagen;
 
 import com.goatchez.iron_bloomery.blocks.CustomBlockDefinitions;
 import com.goatchez.iron_bloomery.items.CustomItemDefinitions;
-import net.minecraft.ResourceLocationException;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.common.crafting.ConditionalRecipeOutput;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -28,9 +25,8 @@ public class RecipeDataGen extends RecipeProvider {
                 .pattern("SLS")
                 .define('B', Items.BRICKS)
                 .define('C', Items.CHARCOAL)
-                .define('S', Items.COBBLESTONE)
-                // todo make this a tag to accept all overworld logs
-                .define('L', Items.OAK_LOG)
+                .define('S', Tags.Items.COBBLESTONES)
+                .define('L', ItemTags.LOGS_THAT_BURN)
                 .unlockedBy("has_raw_iron", this.has(Items.RAW_IRON))
                 .save(this.output);
 
