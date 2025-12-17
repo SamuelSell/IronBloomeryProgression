@@ -27,7 +27,7 @@ public class BloomeryBlockTopHalf extends Block {
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<Half> HALF = BlockStateProperties.HALF;
 
-    public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 16, 16);
+    public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 11, 16);
 
 
     public BloomeryBlockTopHalf(Properties properties) {
