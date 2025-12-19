@@ -35,7 +35,7 @@ public class RecipeDataGen extends RecipeProvider {
                 .pattern(" SC")
                 .pattern("S  ")
                 .define('S', Items.STICK)
-                .define('C', Items.COBBLESTONE)
+                .define('C', Tags.Items.COBBLESTONES)
                 .unlockedBy("has_raw_iron", this.has(Items.RAW_IRON))
                 .save(this.output);
     }
