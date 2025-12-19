@@ -1,0 +1,6 @@
+// 1.21.1	2025-12-19T12:44:56.6333375	Block States: iron_bloomery
+f96bcc33d81bfa565921430442d887bda8a12e5b assets/iron_bloomery/blockstates/bloomery_block_top_half.json
+057faf7984fd70855d0e7db04365d80858637642 assets/iron_bloomery/blockstates/bloomery_controller.json
+cb4d67ffb71629b41e3619ef352f7cd3b37c98db assets/iron_bloomery/models/block/bloomery_block_top_half.json
+d934b3e7df13b28ba043c3f99d87c204bad78b87 assets/iron_bloomery/models/item/bloomery_block_top_half.json
+546331fa1c3997753f45a64f3bf51b8329b1daa3 assets/iron_bloomery/models/item/bloomery_controller.json

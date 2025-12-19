@@ -5,27 +5,24 @@ import com.goatchez.iron_bloomery.blocks.CustomBlockDefinitions;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.commands.BanListCommands;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
 public class BlockTagsDataGen extends BlockTagsProvider {
-
-
-    public BlockTagsDataGen(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, lookupProvider, IronBloomery.MOD_ID);
-    }
-
     public static final TagKey<Block> MINEABLE_PICKAXE = addToMinecraftTag("mineable/pickaxe");
     public static final TagKey<Block> MINING_LEVEL_STONE = addToMinecraftTag("needs_stone_tool");
     public static final TagKey<Block> DIRECTIONAL_LOGS_OVERWORLD = createCustomTag("directional_logs_overworld");
+
+    public BlockTagsDataGen(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
+        super(output, lookupProvider, IronBloomery.MOD_ID, existingFileHelper);
+    }
 
 
     @Override
@@ -57,9 +54,7 @@ public class BlockTagsDataGen extends BlockTagsProvider {
                 .add(Blocks.MANGROVE_LOG)
                 .add(Blocks.STRIPPED_MANGROVE_LOG)
                 .add(Blocks.CHERRY_LOG)
-                .add(Blocks.STRIPPED_CHERRY_LOG)
-                .add(Blocks.PALE_OAK_LOG)
-                .add(Blocks.STRIPPED_PALE_OAK_LOG);
+                .add(Blocks.STRIPPED_CHERRY_LOG);
     }
 
     private static TagKey<Block> createCustomTag(String name) {

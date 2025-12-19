@@ -3,12 +3,13 @@ package com.goatchez.iron_bloomery.datagen;
 import com.goatchez.iron_bloomery.IronBloomery;
 import com.goatchez.iron_bloomery.sounds.CustomSounds;
 import net.minecraft.data.PackOutput;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.common.data.SoundDefinition;
 import net.neoforged.neoforge.common.data.SoundDefinitionsProvider;
 
 public class SoundDefinitionDataGen extends SoundDefinitionsProvider {
-    public SoundDefinitionDataGen(PackOutput output) {
-        super(output, IronBloomery.MOD_ID);
+    public SoundDefinitionDataGen(PackOutput output, ExistingFileHelper existingFileHelper) {
+        super(output, IronBloomery.MOD_ID, existingFileHelper);
     }
 
     @Override

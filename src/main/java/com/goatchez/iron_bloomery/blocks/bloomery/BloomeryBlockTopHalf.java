@@ -5,7 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -67,9 +67,8 @@ public class BloomeryBlockTopHalf extends Block {
     }
 
 
-
     @Override
-    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (state.getValue(HALF) == Half.TOP) {
             pos = pos.below();
 //            state = level.getBlockState(pos);
@@ -78,9 +77,8 @@ public class BloomeryBlockTopHalf extends Block {
         if (level.getBlockEntity(pos) instanceof BloomeryControllerBlockEntity controllerBlockEntity) {
             if (!level.isClientSide()) {
                 player.openMenu(new SimpleMenuProvider(controllerBlockEntity, Component.translatable("container.iron_bloomery.bloomery")), pos);
-                return InteractionResult.SUCCESS;
             }
         }
-        return InteractionResult.SUCCESS;
+        return ItemInteractionResult.sidedSuccess(level.isClientSide());
     }
 }

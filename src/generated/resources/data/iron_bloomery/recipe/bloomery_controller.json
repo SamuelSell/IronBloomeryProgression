@@ -2,10 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": "minecraft:bricks",
-    "C": "minecraft:charcoal",
-    "L": "#minecraft:logs_that_burn",
-    "S": "#c:cobblestones"
+    "B": {
+      "item": "minecraft:bricks"
+    },
+    "C": {
+      "item": "minecraft:charcoal"
+    },
+    "L": {
+      "tag": "minecraft:logs_that_burn"
+    },
+    "S": {
+      "tag": "c:cobblestones"
+    }
   },
   "pattern": [
     "BBB",

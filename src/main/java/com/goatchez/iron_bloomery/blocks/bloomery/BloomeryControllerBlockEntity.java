@@ -2,7 +2,6 @@ package com.goatchez.iron_bloomery.blocks.bloomery;
 
 import com.goatchez.iron_bloomery.blocks.CustomBlockDefinitions;
 import com.goatchez.iron_bloomery.items.CustomItemDefinitions;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -27,13 +26,10 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.ValueInput;
-import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class BloomeryControllerBlockEntity extends BlockEntity implements MenuProvider {
@@ -80,30 +76,23 @@ public class BloomeryControllerBlockEntity extends BlockEntity implements MenuPr
     }
 
     @Override
-    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
-        drops();
-        super.preRemoveSideEffects(pos, state);
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        tag.put("inventory", itemStackHandler.serializeNBT(registries));
+        tag.putInt("bloomery_entity.progress", progress);
+        tag.putInt("bloomery_entity.maxProgress", maxProgress);
+        tag.putInt("bloomery_entity.litProgress", litProgress);
+        tag.putInt("bloomery_entity.maxLitProgress", maxLitProgress);
+        super.saveAdditional(tag, registries);
     }
 
     @Override
-    protected void saveAdditional(ValueOutput output) {
-        super.saveAdditional(output);
-        itemStackHandler.serialize(output);
-        output.putInt("bloomery_entity.progress", progress);
-        output.putInt("bloomery_entity.maxProgress", maxProgress);
-        output.putInt("bloomery_entity.litProgress", litProgress);
-        output.putInt("bloomery_entity.maxLitProgress", maxLitProgress);
-
-    }
-
-    @Override
-    protected void loadAdditional(ValueInput input) {
-        super.loadAdditional(input);
-        itemStackHandler.deserialize(input);
-        progress = input.getIntOr("bloomery_entity.progress", 0);
-        maxProgress = input.getIntOr("bloomery_entity.maxProgress", 0);
-        litProgress = input.getIntOr("bloomery_entity.litProgress", 0);
-        maxLitProgress = input.getIntOr("bloomery_entity.maxLitProgress", 0);
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        itemStackHandler.deserializeNBT(registries, tag.getCompound("inventory"));
+        progress = tag.getInt("bloomery_entity.progress");
+        maxProgress = tag.getInt("bloomery_entity.maxProgress");
+        litProgress = tag.getInt("bloomery_entity.litProgress");
+        maxLitProgress = tag.getInt("bloomery_entity.maxLitProgress");
     }
 
     public BloomeryControllerBlockEntity(BlockPos pos, BlockState blockState) {
@@ -162,13 +151,8 @@ public class BloomeryControllerBlockEntity extends BlockEntity implements MenuPr
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
-        return saveWithoutMetadata(pRegistries);
-    }
-
-    @Override
-    public void handleUpdateTag(ValueInput input) {
-        super.handleUpdateTag(input);
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        return saveWithoutMetadata(registries);
     }
 
     private List<Integer> getEmptyOutputSlots() {

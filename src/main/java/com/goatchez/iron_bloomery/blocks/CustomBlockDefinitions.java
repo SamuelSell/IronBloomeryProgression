@@ -7,6 +7,7 @@ import com.goatchez.iron_bloomery.blocks.bloomery.BloomeryBlockTopHalf;
 import com.goatchez.iron_bloomery.items.CustomItemDefinitions;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -39,10 +40,8 @@ public class CustomBlockDefinitions {
 
     public static final Supplier<BlockEntityType<BloomeryControllerBlockEntity>> BLOOMERY_CONTROLLER_BLOCK_ENTITY = BLOCK_ENTITIES.register(
             "bloomery_controller_block_entity",
-            () -> new BlockEntityType<>(
-                    BloomeryControllerBlockEntity::new,
-                    CustomBlockDefinitions.BLOOMERY_CONTROLLER.get()
-            )
+            () -> BlockEntityType.Builder.of(
+                    BloomeryControllerBlockEntity::new, BLOOMERY_CONTROLLER.get()).build(null)
     );
 
 
@@ -55,7 +54,7 @@ public class CustomBlockDefinitions {
     }
 
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
-        CustomItemDefinitions.ITEMS.registerItem(name, properties -> (new BlockItem(block.get(), properties.useBlockDescriptionPrefix())));
+        CustomItemDefinitions.ITEMS.registerItem(name, properties -> (new BlockItem(block.get(), new Item.Properties())));
     }
 
     public static void register(IEventBus eventBus) {

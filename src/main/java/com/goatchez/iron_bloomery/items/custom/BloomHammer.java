@@ -2,35 +2,26 @@ package com.goatchez.iron_bloomery.items.custom;
 
 import com.goatchez.iron_bloomery.datagen.BlockTagsDataGen;
 import com.goatchez.iron_bloomery.sounds.CustomSounds;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.common.ItemAbility;
 
-import java.util.function.Consumer;
+import java.util.List;
 
 public class BloomHammer extends Item {
     public BloomHammer(Properties properties) {
@@ -51,7 +42,7 @@ public class BloomHammer extends Item {
         boolean ironBloomInMainHand = player.getMainHandItem().getItem() instanceof IronBloom;
         boolean logBlock = clickedBlock.defaultBlockState().is(BlockTagsDataGen.DIRECTIONAL_LOGS_OVERWORLD);
 
-        if (player.getCooldowns().isOnCooldown(player.getOffhandItem())) {
+        if (player.getCooldowns().isOnCooldown(player.getOffhandItem().getItem())) {
             return InteractionResult.FAIL;
         }
 
@@ -62,7 +53,7 @@ public class BloomHammer extends Item {
             boolean isLogEnd = (axis == Direction.Axis.Y && (context.getClickedFace() == Direction.UP));
             if (isLogEnd) {
                 if (!level.isClientSide()) {
-                    player.getCooldowns().addCooldown(player.getOffhandItem(), 10);
+                    player.getCooldowns().addCooldown(player.getOffhandItem().getItem(), 10);
                     player.getOffhandItem().hurtAndBreak(1, (ServerLevel) level, (ServerPlayer) player, item -> player.onEquippedItemBroken(item, EquipmentSlot.OFFHAND));
 
                     // chance to forge iron bloom
@@ -89,9 +80,8 @@ public class BloomHammer extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-        tooltipAdder.accept(Component.translatable("item.iron_bloomery.bloom_hammer.tooltip"));
-        super.appendHoverText(stack, context, tooltipDisplay, tooltipAdder, flag);
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        tooltipComponents.add(Component.translatable("item.iron_bloomery.bloom_hammer.tooltip"));
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
-
 }

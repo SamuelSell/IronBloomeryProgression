@@ -1,17 +1,32 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,half=bottom": {
       "model": "iron_bloomery:block/bloomery_controller",
       "y": 90
     },
-    "facing=north": {
+    "facing=east,half=top": {
+      "model": "iron_bloomery:block/bloomery_controller",
+      "y": 90
+    },
+    "facing=north,half=bottom": {
       "model": "iron_bloomery:block/bloomery_controller"
     },
-    "facing=south": {
+    "facing=north,half=top": {
+      "model": "iron_bloomery:block/bloomery_controller"
+    },
+    "facing=south,half=bottom": {
       "model": "iron_bloomery:block/bloomery_controller",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,half=top": {
+      "model": "iron_bloomery:block/bloomery_controller",
+      "y": 180
+    },
+    "facing=west,half=bottom": {
+      "model": "iron_bloomery:block/bloomery_controller",
+      "y": 270
+    },
+    "facing=west,half=top": {
       "model": "iron_bloomery:block/bloomery_controller",
       "y": 270
     }
